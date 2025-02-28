@@ -1,4 +1,4 @@
-function uploadMedia() {
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImluaGp3dmhzYWR4eXN5Z2Z1cGJ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDA3NTk4NjIsImV4cCI6MjA1NjMzNTg2Mn0.K65KPOQYYi-8BNwjHCAK81VNC660Cxjbf15EqXpKiCsfunction uploadMedia() {
     const fileInput = document.getElementById("mediaInput");
     const captionInput = document.getElementById("mediaCaption");
     const galleryContainer = document.querySelector(".gallery-container");
