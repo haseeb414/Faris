@@ -40,3 +40,35 @@ function uploadMedia() {
 function deleteMedia(button) {
     button.parentElement.remove();
 }
+const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+
+document.getElementById("upload-btn").addEventListener("click", async () => {
+    const file = document.getElementById("fileInput").files[0];
+    if (!file) return alert("Please select a file!");
+
+    const filePath = `uploads/${Date.now()}_${file.name}`; // Unique file name
+    const { data, error } = await supabase.storage.from("uploads").upload(filePath, file);
+
+    if (error) {
+        console.error("Upload failed:", error.message);
+        return alert("Upload failed!");
+    }
+
+    // Get file URL
+    const { publicURL } = supabase.storage.from("uploads").getPublicUrl(filePath);
+    document.getElementById("gallery").innerHTML += `<img src="${publicURL}" width="200px">`;
+
+    alert("Uploaded successfully!");
+});
+async function loadGallery() {
+    const { data, error } = await supabase.storage.from("uploads").list();
+    if (error) return console.error("Error loading images:", error.message);
+
+    const gallery = document.getElementById("gallery");
+    data.forEach(file => {
+        const fileURL = `${SUPABASE_URL}/storage/v1/object/public/uploads/${file.name}`;
+        gallery.innerHTML += `<img src="${fileURL}" width="200px">`;
+    });
+}
+
+loadGallery();
