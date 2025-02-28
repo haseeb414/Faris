@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faris' Baby Album</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+<div class="profile-pic">
+    <img src="faris.jpg" alt="Faris' Picture">
+</div>
+        <h1>Faris' Special Moments</h1>
+        <p>Upload images & videos to cherish forever!</p>
+    </header>
+
+    <!-- Upload Section -->
+    <section class="upload-section">
+        <h2>Upload New Memory</h2>
+        <input type="file" id="mediaInput" accept="image/*, video/*">
+        <input type="text" id="mediaCaption" placeholder="Add a description">
+        <button onclick="uploadMedia()">Upload</button>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery">
+        <h2>Gallery</h2>
+        <div class="gallery-container"></div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Made with ❤️ by Family</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
